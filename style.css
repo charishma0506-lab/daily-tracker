@@ -1,0 +1,216 @@
+:root {
+  --bg: #fff6fb;
+  --card: #fff;
+  --accent1: #9b6cff;
+  --accent2: #ff8ac9;
+  --accent3: #7ac7ff;
+  --muted: #6e6176;
+  --max-width: 1000px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: #2b2540;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  background: linear-gradient(90deg, #ffdff2, #f3f0ff);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.logo {
+  height: 60px;
+  border-radius: 10px;
+  margin-right: 16px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 22px;
+  color: var(--accent1);
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.topnav {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: #ffeaf4;
+}
+
+.topnav button {
+  background: transparent;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--accent1);
+}
+
+.topnav button.active {
+  background: linear-gradient(90deg, var(--accent2), var(--accent3));
+  color: white;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 20px auto;
+  padding: 0 12px;
+  display: grid;
+  gap: 16px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  background: linear-gradient(90deg, var(--accent2), var(--accent3));
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn.danger {
+  background: transparent;
+  color: var(--accent2);
+  border: 1px solid rgba(255, 138, 201, 0.6);
+}
+
+.page {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.dash-card {
+  background: var(--bg);
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.checklist-grid {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.check-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.check-item input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+
+.chart {
+  overflow: auto;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.header-row, .row-grid {
+  display: grid;
+}
+
+.habit-name {
+  padding: 8px;
+  font-weight: 600;
+}
+
+.cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 36px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 6px;
+  position: relative;
+}
+
+.cell .bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--accent2), var(--accent3));
+  width: 0;
+  transition: width 0.3s;
+}
+
+.cell small {
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+.hobby-list {
+  margin-top: 12px;
+  display: grid;
+  gap: 8px;
+}
+
+.hobby-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+#summaryContent .dash-card {
+  text-align: left;
+}
