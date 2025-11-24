@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cherry Daily Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <img src="logo.png" alt="Cherry Tracker Logo" class="logo">
+    <div>
+      <h1>Cherry Daily Tracker</h1>
+      <div class="subtitle">Track your day, habits & hobbies</div>
+    </div>
+  </header>
+
+  <nav class="topnav">
+    <button data-show="dashboard" class="active">Dashboard</button>
+    <button data-show="checklist">Checklist</button>
+    <button data-show="tracker">Time Tracker</button>
+    <button data-show="hobbies">Hobbies</button>
+    <button data-show="summary">Summary</button>
+  </nav>
+
+  <main class="container">
+    <!-- Dashboard -->
+    <section id="dashboard" class="page visible card">
+      <h2>Welcome, Charishma!</h2>
+      <p class="muted">Your daily tracking dashboard.</p>
+      <div class="dash-grid">
+        <div class="dash-card">
+          <h3>Checklist Today</h3>
+          <div id="todayChecklistPreview"></div>
+        </div>
+        <div class="dash-card">
+          <h3>Time Tracked</h3>
+          <div id="todayMinutesPreview"></div>
+        </div>
+        <div class="dash-card">
+          <h3>Quick Actions</h3>
+          <button class="btn" onclick="showPage('checklist')">Go to Checklist</button>
+          <button class="btn" onclick="showPage('tracker')">Go to Tracker</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist -->
+    <section id="checklist" class="page card">
+      <h2>Daily Checklist</h2>
+      <div class="row">
+        <label>Date: <input type="date" id="checklistDate"></label>
+        <button class="btn" id="clearChecklistBtn">Clear</button>
+      </div>
+      <div id="checklistItems" class="checklist-grid"></div>
+      <hr>
+      <h4>Add new item</h4>
+      <div class="row">
+        <input id="newChecklistText" placeholder="New checklist item">
+        <button class="btn" id="addChecklistBtn">Add</button>
+      </div>
+    </section>
+
+    <!-- Time Tracker -->
+    <section id="tracker" class="page card">
+      <h2>Monthly Time Tracker</h2>
+      <div class="row">
+        <label>Month: <select id="monthSelect"></select></label>
+        <label>Year: <select id="yearSelect"></select></label>
+        <label>Max minutes: <input type="number" id="maxMinutes" value="300" min="30" step="10"></label>
+        <button class="btn" id="exportBtn">Export CSV</button>
+        <button class="btn danger" id="clearMonthBtn">Clear Month</button>
+      </div>
+      <div id="chart" class="chart"></div>
+    </section>
+
+    <!-- Hobbies -->
+    <section id="hobbies" class="page card">
+      <h2>Hobbies Tracker</h2>
+      <div class="row">
+        <label>Date: <input type="date" id="hobbyDate"></label>
+        <button class="btn" id="addHobbyEntryBtn">Add Entry</button>
+      </div>
+      <div class="hobby-list" id="hobbyList"></div>
+      <hr>
+      <h4>Quick Log</h4>
+      <div class="row">
+        <select id="hobbySelect">
+          <option>Dance</option>
+          <option>Piano</option>
+          <option>Resin</option>
+          <option>Study</option>
+        </select>
+        <input id="hobbyMins" type="number" placeholder="minutes" min="1">
+        <input id="hobbyNote" placeholder="note (optional)">
+        <button class="btn" id="quickLogBtn">Log</button>
+      </div>
+    </section>
+
+    <!-- Summary -->
+    <section id="summary" class="page card">
+      <h2>Monthly Summary</h2>
+      <div class="row">
+        <label>Month: <select id="summaryMonth"></select></label>
+        <label>Year: <select id="summaryYear"></select></label>
+        <button class="btn" id="summaryRefresh">Refresh</button>
+      </div>
+      <div id="summaryContent"></div>
+    </section>
+  </main>
+
+  <footer class="footer card">
+    <small>Data saved in browser. Export to CSV to backup.</small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
